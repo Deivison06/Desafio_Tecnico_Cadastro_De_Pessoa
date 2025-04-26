@@ -1,0 +1,68 @@
+﻿## Ignore arquivos do Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Build Results
+bin/
+obj/
+[Bb]uild/
+[Ll]ogs/
+
+## pacotes
+*.nupkg
+packages/
+*.snupkg
+
+## Arquivos do Rider/JetBrains
+.idea/
+*.sln.iml
+
+## Configurações do sistema operacional
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+## Arquivos de publicação
+.publish/
+*.Publish.xml
+
+## Logs
+*.log
+
+## Arquivos temporários
+*.tmp
+*.temp
+*.bak
+*.old
+
+## Arquivos de lock e cache
+project.lock.json
+project.fragment.lock.json
+
+## Diretórios de dependência (caso use Node.js para front-end)
+node_modules/
+bower_components/
+
+## Secretos e config locais
+appsettings.*.json
+!appsettings.json
+
+## Dotnet artifacts
+*.dbmdl
+*.db
+*.sqlite
+*.sqlite3
+
+## Docker
+**/docker-compose.override.yml
+docker-compose.*
+.dockerignore
+
+## Outros
+*.swp
+*.swo
+*.orig

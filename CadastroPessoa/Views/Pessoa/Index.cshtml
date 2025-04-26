@@ -1,0 +1,42 @@
+﻿@model List<CadastroPessoa.Models.Pessoa>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0">👥 Pessoas Cadastradas</h2>
+    <a asp-action="Create" class="btn btn-success">
+        <i class="bi bi-plus-lg me-1"></i> Nova Pessoa
+    </a>
+</div>
+
+
+@if (Model.Count == 0)
+{
+    <div class="alert alert-info">Nenhuma pessoa cadastrada ainda.</div>
+}
+else
+{
+    <div class="table-responsive shadow-sm rounded">
+        <table class="table table-hover align-middle mb-0">
+            <thead class="table-primary">
+            <tr>
+                <th>Nome</th>
+                <th>Data de Nascimento</th>
+                <th>Renda Mensal</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var pessoa in Model)
+            {
+                <tr>
+                    <td>@pessoa.Nome</td>
+                    <td>@pessoa.DataNascimento.ToString("dd/MM/yyyy")</td>
+                    <td>R$ @pessoa.RendaMensal.ToString("N2")</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+
+}
