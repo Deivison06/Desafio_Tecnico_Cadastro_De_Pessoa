@@ -17,13 +17,20 @@ public class PessoaController : Controller
         _logger = logger;
     }
 
-    public IActionResult Index()
+    public IActionResult Index(string filtro, int paginaAtual = 1, int tamanhoPagina = 10)
     {
-        _logger.LogInformation("Acessando a lista de pessoas.");
-        var pessoas = _pessoaService.Listar();
+        _logger.LogInformation("Listando pessoas com filtro '{Filtro}' na página {Pagina}", filtro, paginaAtual);
+
+        var pessoas = _pessoaService.Listar(filtro, paginaAtual, tamanhoPagina, out int totalPessoas);
+        var totalPaginas = (int)Math.Ceiling((double)totalPessoas / tamanhoPagina);
+
+        ViewBag.PaginaAtual = paginaAtual;
+        ViewBag.TotalPaginas = totalPaginas;
+        ViewBag.Filtro = filtro;
+
         return View(pessoas);
     }
-    
+
     public IActionResult Create()
     {
         return View();
